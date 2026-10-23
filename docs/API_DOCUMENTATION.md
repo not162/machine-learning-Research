@@ -63,6 +63,14 @@ Melihat daftar model LLM berdasarkan parameter bilion yang dapat diinjeksi ke da
       "max_rag_context_tokens": 4096,
       "optimal_top_k": 3
     },
+    "27b": {
+      "model_id": "qwen/qwen3.8-27b",
+      "parameters": "27 Billion Parameters",
+      "category": "High-Efficiency Clinical Reasoning (Sweet Spot)",
+      "typical_latency_ms": 110,
+      "max_rag_context_tokens": 8192,
+      "optimal_top_k": 5
+    },
     "70b": {
       "model_id": "llama-3.3-70b-versatile",
       "parameters": "70 Billion Parameters",
@@ -72,7 +80,7 @@ Melihat daftar model LLM berdasarkan parameter bilion yang dapat diinjeksi ke da
       "optimal_top_k": 5
     }
   },
-  "recommended_for_clinical": "70b (Llama 3.3 70B)",
+  "recommended_for_clinical": "70b (Llama 3.3 70B) & 27b (Qwen 3.8 27B)",
   "recommended_for_mobile_fast": "8b (Llama 3.1 8B)"
 }
 ```
@@ -87,7 +95,7 @@ Endpoint konsultasi klinis terpadu.
 |---|---|:---:|---|---|
 | `user_query` | `string` | **Ya** | Keluhan pasien atau pertanyaan klinis. | - |
 | `role` | `string` | Tidak | Persona: `"health_info"` (edukasi pasien) atau `"research"` (analisis dokter). | `"health_info"` |
-| `model_size` | `string` | Tidak | Ukuran parameter model: `"8b"` (8 Billion), `"70b"` (70 Billion), atau `"8x7b"` (47B MoE). | `"70b"` |
+| `model_size` | `string` | Tidak | Ukuran parameter model: `"8b"`, `"27b"` (Qwen 3.8 27B), `"70b"`, atau `"8x7b"`. | `"70b"` |
 | `top_k` | `integer` | Tidak | Jumlah dokumen protokol medis RAG yang diekstrak. | Otomatis sesuai model |
 | `patient_vitals` | `object` | Tidak | Data tanda-tanda vital kuantitatif (sistolik, diastolik, gula darah, dll). | `null` |
 

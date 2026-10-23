@@ -44,6 +44,34 @@ records = [
         "updated_at": timestamp_now
     },
     {
+        "id": "MOD-GEN-27B",
+        "model_name": "Qwen 3.8 27B Clinical Reasoner",
+        "model_identifier": "qwen/qwen3.8-27b",
+        "category": "Generator LLM (High-Efficiency Clinical Reasoning & Structured Synthesis)",
+        "parameter_scale": "27B",
+        "parameter_count_exact": "27,000,000,000",
+        "parameter_billion_float": 27.0,
+        "architecture": "Autoregressive Transformer Decoder (32k - 128k Context Window, RoPE)",
+        "rag_integration": {
+            "role": "Sweet Spot Clinical Reasoner & Multi-Lingual Protocol Grounding",
+            "optimal_top_k_chunks": 5,
+            "max_context_tokens_allocated": 8192,
+            "synthesis_depth": "High (Penalaran diagnostik mendalam, kepatuhan sitasi protokol medis tinggi, zero-shot instruction following)"
+        },
+        "performance_profile": {
+            "typical_latency_ms": 110,
+            "throughput_tokens_per_sec": 480,
+            "deployment_target": "Groq LPU / vLLM (Single RTX 3090/4090 24GB VRAM in 4-bit AWQ / bfloat16)"
+        },
+        "clinical_evidence_sources_linked": [
+            "KB-CARD-001", "KB-PULM-002", "KB-ENDO-003", 
+            "KB-GASTRO-004", "KB-TRAUMA-005", "KB-PSIK-006"
+        ],
+        "api_parameter_value": "27b",
+        "status": "Target Architecture (Optimal Sweet Spot)",
+        "updated_at": timestamp_now
+    },
+    {
         "id": "MOD-GEN-08B",
         "model_name": "Llama 3.1 8B Instant",
         "model_identifier": "llama-3.1-8b-instant",
@@ -397,6 +425,7 @@ Dokumen ini memetakan seluruh model berparameter (dari skala bilion parameter LL
 | ID Model | Nama Model | Skala Parameter | Kategori Peran | Optimal RAG Chunks (`top_k`) | Target Deployment | Status Integrasi API |
 |---|---|:---:|---|:---:|---|:---:|
 | `MOD-GEN-70B` | **Llama 3.3 70B Versatile** | **70 Billion** (70B) | Clinical Reasoning & Synthesis | 5 – 8 chunks | Groq LPU / 2x A100 80GB | `POST /api/chat` (`model_size: "70b"`) |
+| `MOD-GEN-27B` | **Qwen 3.8 27B Clinical** | **27 Billion** (27B) | High-Efficiency Specialist Reasoner | 5 chunks | Groq LPU / RTX 3090/4090 24GB | `POST /api/chat` (`model_size: "27b"`) |
 | `MOD-GEN-08B` | **Llama 3.1 8B Instant** | **8 Billion** (8B) | Edge & Patient Fast Education | 2 – 3 chunks | Groq LPU / RTX 3060 12GB | `POST /api/chat` (`model_size: "8b"`) |
 | `MOD-GEN-47B-MOE` | **Mixtral 8x7B MoE 32k** | **47 Billion** (~13B act) | Mixture-of-Experts Analysis | 4 – 5 chunks | Groq LPU / 2x RTX 3090 | `POST /api/chat` (`model_size: "8x7b"`) |
 | `MOD-EMB-124M` | **IndoBERT Base MLM** | **0.124 Billion** (124M) | 768-d Dense Semantic Vector | Backbone Encoder | Local Safetensors (497 MB) | `models/indobert_mlm_clinical` |

@@ -82,6 +82,15 @@ SUPPORTED_LLM_MODELS = {
         "optimal_top_k": 3,
         "description": "Ekstrem cepat, responsif, ideal untuk FAQ edukasi pasien dan triase real-time."
     },
+    "27b": {
+        "model_id": "qwen/qwen3.8-27b",
+        "parameters": "27 Billion Parameters",
+        "category": "High-Efficiency Clinical Reasoning (Sweet Spot)",
+        "typical_latency_ms": 110,
+        "max_rag_context_tokens": 8192,
+        "optimal_top_k": 5,
+        "description": "Sweet spot antara kecepatan inferensi dan penalaran medis tingkat spesialis. Sangat optimal untuk single-GPU 24GB VRAM (RTX 3090/4090) atau cluster vLLM/Groq."
+    },
     "70b": {
         "model_id": "llama-3.3-70b-versatile",
         "parameters": "70 Billion Parameters",

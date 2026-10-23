@@ -182,6 +182,7 @@ Klien dapat memilih ukuran model melalui parameter `model_size` saat memanggil A
 | Parameter API | Model | Skala Parameter | Karakteristik RAG | Latensi | Rekomendasi Ekstraksi Chunks |
 |:---:|---|:---:|---|:---:|:---:|
 | `8b` | `llama-3.1-8b-instant` | **8 Billion** | Cepat, responsif, hemat memori | ~75 ms | 3 chunks (~600 token) |
+| `27b` | `qwen/qwen3.8-27b` | **27 Billion** | **Sweet Spot Klinis**: Penalaran spesialis, efisien single-GPU 24GB | ~110 ms | 5 chunks (~1.500 token) |
 | `70b` | `llama-3.3-70b-versatile` | **70 Billion** | **Gold Standard Medis**, penalaran klinis kompleks | ~180 ms | 5–8 chunks (~2.000 token) |
 | `8x7b` | `mixtral-8x7b-32768` | **47 Billion (MoE)** | Seimbang antara throughput dan analisis mendalam | ~130 ms | 4 chunks (~1.200 token) |
 

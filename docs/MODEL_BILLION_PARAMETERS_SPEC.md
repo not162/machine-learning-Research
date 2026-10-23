@@ -1,6 +1,6 @@
 # 🏥 Spesifikasi Sumber Model Bilion Parameter & Ekstraksi RAG
 **Proyek: RSUKT Hybrid Human-Agent Medical Chatbot**  
-**Versi: v1.6.0 | Tanggal Rilis: 2026-10-23T07:44:10.289956+00:00**
+**Versi: v1.6.0 | Tanggal Rilis: 2026-10-23T07:52:06.358512+00:00**
 
 Dokumen ini memetakan seluruh model berparameter (dari skala bilion parameter LLM hingga encoder dense embedding) dan korpus protokol medis yang diekstraksi ke dalam mesin RAG terpadu RS RSUKT.
 
@@ -11,6 +11,7 @@ Dokumen ini memetakan seluruh model berparameter (dari skala bilion parameter LL
 | ID Model | Nama Model | Skala Parameter | Kategori Peran | Optimal RAG Chunks (`top_k`) | Target Deployment | Status Integrasi API |
 |---|---|:---:|---|:---:|---|:---:|
 | `MOD-GEN-70B` | **Llama 3.3 70B Versatile** | **70 Billion** (70B) | Clinical Reasoning & Synthesis | 5 – 8 chunks | Groq LPU / 2x A100 80GB | `POST /api/chat` (`model_size: "70b"`) |
+| `MOD-GEN-27B` | **Qwen 3.8 27B Clinical** | **27 Billion** (27B) | High-Efficiency Specialist Reasoner | 5 chunks | Groq LPU / RTX 3090/4090 24GB | `POST /api/chat` (`model_size: "27b"`) |
 | `MOD-GEN-08B` | **Llama 3.1 8B Instant** | **8 Billion** (8B) | Edge & Patient Fast Education | 2 – 3 chunks | Groq LPU / RTX 3060 12GB | `POST /api/chat` (`model_size: "8b"`) |
 | `MOD-GEN-47B-MOE` | **Mixtral 8x7B MoE 32k** | **47 Billion** (~13B act) | Mixture-of-Experts Analysis | 4 – 5 chunks | Groq LPU / 2x RTX 3090 | `POST /api/chat` (`model_size: "8x7b"`) |
 | `MOD-EMB-124M` | **IndoBERT Base MLM** | **0.124 Billion** (124M) | 768-d Dense Semantic Vector | Backbone Encoder | Local Safetensors (497 MB) | `models/indobert_mlm_clinical` |
