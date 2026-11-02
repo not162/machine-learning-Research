@@ -328,3 +328,31 @@ python -m uvicorn app_api:app --reload --port 8000
 
 ## 📜 Lisensi
 Proyek riset ini dirilis di bawah lisensi [MIT License](LICENSE).
+
+
+## Arsitektur Sistem
+
+```mermaid
+flowchart LR
+    U[Pasien / Klinisi] --> API[FastAPI app_api.py]
+    API --> PRE[Preprocessing & Normalisasi Singkatan]
+    PRE --> TRI[Triage Dept: Clinical MLP / LogReg]
+    PRE --> RAG[RAG: TF-IDF Retrieval]
+    RAG --> LLM[Groq LLM]
+    TRI --> LLM
+    LLM --> SAFE[Safety Guardrail: Hebbian + Perceptron + LogReg]
+    SAFE -->|VERIFIED| OUT[Jawaban + Evidence]
+    SAFE -->|FLAGGED| HUM[Human Review]
+    HUM --> OUT
+    CARDIO[Cardio Risk RF] --> API
+```
+
+## Pengembangan
+
+```bash
+pip install -r requirements.txt
+python -m pytest tests
+python build_stepped_notebook.py && python execute_notebook_steps.py
+```
+
+Catatan: set audit hanya 13 rekam medis (4 di test set); akurasi 100% adalah uji fungsional, bukan bukti generalisasi.
